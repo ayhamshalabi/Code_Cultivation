@@ -186,24 +186,14 @@ class Vegetable(Plant):
     def __init__(
         self,
         name: str,
-        first: float | str,
-        second: float | str,
-        third: int | str,
-        fourth: int = 0,
+        height: float,
+        age: int,
+        harvest_season: str,
+        nutritional_value: int = 0,
         growth_rate: float = 0.8,
     ) -> None:
-        try:
-            h = float(first)
-            a = int(second)
-            season = str(third)
-            nutritional_value = fourth
-        except ValueError:
-            season = str(first)
-            h = float(second)
-            a = int(third)
-            nutritional_value = fourth
-        super().__init__(name, h, a, growth_rate)
-        self._harvest_season: str = season
+        super().__init__(name, height, age, growth_rate)
+        self._harvest_season: str = harvest_season
         self._nutritional_value: int = nutritional_value
 
     def age(self, days: int = 1) -> None:
